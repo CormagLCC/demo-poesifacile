@@ -22,9 +22,18 @@ public class Historique {
 
     public Historique(){}
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
     public Historique(Integer id_sauvegarde, Integer salle, Integer id_joueur, Integer score) {
         this.id_sauvegarde = id_sauvegarde;
         this.salle = salle;
+
         this.score = score;
     }
 

@@ -19,10 +19,17 @@ public class Utilisateur {
     @OneToMany (mappedBy = "utilisateur", fetch = FetchType.EAGER) //Declaration de relation entre un utilisateur et plusieurs historiques
     private List <Historique> historiques; //déclaration de la liste d'historiques liés à l'utilisateur
 
+    public List<Historique> getHistoriques() {
+        return historiques;
+    }
+
+    public void setHistoriques(List<Historique> historiques) {
+        this.historiques = historiques;
+    }
+
     public Utilisateur(){}; //constructeur par défaut
 
-    public Utilisateur(Integer id, String pseudo, String password) { //constructeur des variables
-        this.id = id;
+    public Utilisateur(String pseudo, String password) { //constructeur des variables
         this.pseudo = pseudo;
         this.password = password;
     }
@@ -50,6 +57,7 @@ public class Utilisateur {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 
 }
