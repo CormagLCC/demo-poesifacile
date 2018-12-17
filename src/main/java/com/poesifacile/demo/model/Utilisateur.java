@@ -1,4 +1,6 @@
 package com.poesifacile.demo.model;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -8,6 +10,7 @@ import java.util.List;
 public class Utilisateur {
     @Id //Déclaration de l'ID unique de la table
     @GeneratedValue(strategy = GenerationType.AUTO) //On déclare que la colonne ID s'auto-incrémente, comme spécifié dans la base
+    @JsonManagedReference //Gère les cas de récursivité (boucle infinie)
     private Integer id;
 
     @Column(name = "pseudo") //Déclaration de colonne

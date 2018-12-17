@@ -1,4 +1,6 @@
 package com.poesifacile.demo.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import javax.rmi.CORBA.Util;
 
@@ -17,6 +19,7 @@ public class Historique {
     private Integer score;
 
     @ManyToOne //Fin de la relation entre plusieurs historiques et un utilisateur
+    @JsonBackReference //Gère les boucles infinies
     @JoinColumn( name = "id_joueur") //Déclaration de la colonne servant de clé étrangère
     private Utilisateur utilisateur; //Déclaration de la table de début de relation
 
