@@ -10,7 +10,7 @@ import java.util.List;
 public class Utilisateur {
     @Id //Déclaration de l'ID unique de la table
     @GeneratedValue(strategy = GenerationType.AUTO) //On déclare que la colonne ID s'auto-incrémente, comme spécifié dans la base
-    @JsonManagedReference //Gère les cas de récursivité (boucle infinie)
+
     private Integer id;
 
     @Column(name = "pseudo") //Déclaration de colonne
@@ -20,6 +20,7 @@ public class Utilisateur {
     private String password;
 
     @OneToMany (mappedBy = "utilisateur", fetch = FetchType.EAGER) //Declaration de relation entre un utilisateur et plusieurs historiques
+    @JsonManagedReference //Gère les cas de récursivité (boucle infinie)
     private List <Historique> historiques; //déclaration de la liste d'historiques liés à l'utilisateur
 
     public List<Historique> getHistoriques() {
